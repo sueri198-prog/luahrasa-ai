@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>AI Emotion Scanner</title>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
+  <script defer src="script.js"></script>
+
+  <style>
+
+    body{
+
+      margin:0;
+
+      background:
+        radial-gradient(
+          circle,
+          #111,
+          #000
+        );
+
+      color:white;
+
+      font-family:Arial;
+
+      overflow:hidden;
+    }
+
+    h1{
+
+      text-align:center;
+
+      margin-top:20px;
+
+      font-size:42px;
+
+      color:cyan;
+
+      text-shadow:
+        0 0 10px cyan,
+        0 0 30px cyan;
+    }
+
+    #main{
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:flex-start;
+
+      gap:40px;
+
+      margin-top:20px;
+    }
+
+    /* LEFT PANEL */
+    #leftPanel{
+
+      width:260px;
+
+      display:flex;
+
+      flex-direction:column;
+
+      align-items:center;
+
+      gap:20px;
+    }
+
+    button{
+
+      width:220px;
+
+      height:80px;
+
+      font-size:22px;
+
+      border:none;
+
+      border-radius:20px;
+
+      cursor:pointer;
+
+      background:cyan;
+
+      color:black;
+
+      box-shadow:
+        0 0 20px cyan,
+        0 0 40px cyan;
+
+      transition:0.3s;
+    }
+
+    button:hover{
+
+      transform:scale(1.05);
+    }
+
+    /* SNAPSHOT */
+    #snapshot{
+
+      width:240px;
+
+      height:320px;
+
+      object-fit:cover;
+
+      border-radius:20px;
+
+      border:3px solid cyan;
+
+      box-shadow:
+        0 0 20px cyan;
+
+      display:none;
+    }
+
+    #snapshotEmotion{
+
+      text-align:center;
+
+      font-size:24px;
+
+      font-weight:bold;
+
+      margin-top:10px;
+    }
+
+    /* CAMERA */
+    #container{
+
+      position:relative;
+
+      width:720px;
+    }
+
+    video{
+
+      width:720px;
+
+      border-radius:20px;
+
+      border:3px solid cyan;
+
+      box-shadow:
+        0 0 20px cyan,
+        0 0 60px cyan;
+    }
+
+    canvas{
+
+      position:absolute;
+
+      top:0;
+
+      left:0;
+    }
+
+    /* STATUS */
+    #status{
+
+      text-align:center;
+
+      margin-top:20px;
+
+      font-size:30px;
+
+      font-weight:bold;
+
+      letter-spacing:2px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>AI EMOTION SCANNER</h1>
+
+  <div id="main">
+
+    <!-- LEFT -->
+    <div id="leftPanel">
+
+      <button id="scanBtn">
+        START SCAN
+      </button>
+
+      <img id="snapshot">
+
+      <div id="snapshotEmotion">
+      </div>
+
+    </div>
+
+    <!-- CAMERA -->
+    <div id="container">
+
+      <video
+        id="video"
+        autoplay
+        muted>
+      </video>
+
+    </div>
+
+  </div>
+
+  <div id="status">
+    Place your face inside the scanner
+  </div>
+
+</body>
+
+</html>
